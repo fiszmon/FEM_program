@@ -1,0 +1,14 @@
+{
+  "H": 0.1,
+  "L": 0.1,
+  "nH": 31,
+  "nL": 31,
+  "T_init": 100.0,
+  "Time": 100.0,
+  "Step": 1.0,
+  "T_ambient": 1200.0,
+  "Alpha": 300,
+  "Specific_heat": 700.0,
+  "Conductivity": 25,
+  "Density": 7800.0
+}
