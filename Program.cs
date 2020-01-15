@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace PROGRAM
 {
@@ -17,6 +19,8 @@ namespace PROGRAM
             var time = _net.GetGlobalData().Time;
             var step = _net.GetGlobalData().Step;
             var nE = _net.GetGlobalData().nE;
+
+            var csv = new StringBuilder();
 
             //Console.WriteLine(NetService.PrintNodesTemperature(_net));
 
@@ -73,11 +77,19 @@ namespace PROGRAM
                 
                 var max = NetService.FindMax(T_final);
                 var min = NetService.FindMin(T_final);
+
+                //in your loop
+                var newLine = string.Format("{0},{1},{2}", i, min, max);
+                csv.AppendLine(newLine);
+
+
+
                 //Console.WriteLine(NetService.PrintNodesTemperature(_net));
                 Console.WriteLine(String.Format("{2} {0} {1}", min, max, i));
             }
 
-
+            //after your loop
+            File.WriteAllText(@"E:\STUDIA\MES\PROGRAM\PROGRAM\ProgramResult" + DateTime.Now.Millisecond + ".csv", csv.ToString());
         }
     }
 }
